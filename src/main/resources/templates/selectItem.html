@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+<meta charset="ISO-8859-1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Manage Items</title>
+
+<link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css"/>
+
+<link href="/css/starter-template.css" rel="stylesheet"/>
+
+</head>
+<body>
+
+    <div class="container">
+
+      <div class="starter-template">
+      
+      <h2>Select Items</h2>
+      
+      </div>
+      
+      
+      
+      
+     	<div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Item Description</th>
+                  <th>Quantity</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr th:each="item : ${items}">
+                  <td th:text="${item.stockId}"></td>
+                  <td th:text="${item.itemDesc}"></td>
+                  <td th:text="${item.quantity}"></td>
+                  <td><a href="#" th:href="'/transaction/item/'+${item.stockId}">Select</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+      
+     
+      
+
+    </div><!-- /.container -->
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+<meta charset="ISO-8859-1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Edit Item</title>
+
+<link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css"/>
+
+<link href="/css/starter-template.css" rel="stylesheet"/>
+
+</head>
+<body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Materials Management System</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="#" th:href="'/item'">Items</a></li>
+            <li><a href="#" th:href="'/borrower'">Borrowers</a></li>
+            <li><a href="#" th:href="'/transaction'">Transaction</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+
+      <div class="starter-template">
+      
+      <h2>Edit Item</h2>
+      
+      </div>
+      
+       <form class="form-horizontal" action="#" th:object="${item}" th:action="'/item/edit/'+ ${stockId}" method="post">
+            
+           
+            
+            <div class="form-group">
+              <label for="inputItemDesc" class="col-sm-2 control-label">Item Description</label>
+              	<div class="col-sm-10">
+              <input type="text" th:field="*{itemDesc}" class="form-control" id="inputItemDesc" placeholder="item Description"/>
+                </div>
+            </div>
+            <div class="form-group">
+              <label for="inputQuantity" class="col-sm-2 control-label">Quantity</label>
+              <div class="col-sm-10">
+                <input type="text" th:field="*{quantity}" class="form-control" id="inputQuantity" placeholder="Quantity"/>
+                </div>
+            </div>
+             <div class="form-group">
+             <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" value="Submit" class="btn btn-default">Save</button>
+            </div>
+             </div>
+              
+          </form>
+      
+     
+      
+
+    </div><!-- /.container -->
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

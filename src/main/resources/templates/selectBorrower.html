@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+<meta charset="ISO-8859-1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Select Borrower</title>
+
+<link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css"/>
+
+<link href="/css/starter-template.css" rel="stylesheet"/>
+
+</head>
+<body>
+
+    <div class="container">
+
+      <div class="starter-template">
+      
+      <h2>Select Borrower</h2>
+      
+      </div>
+      
+          	<div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>#</th>
+                 <th>Name</th>
+                 <th>Address</th>
+                 <th>Contact Number</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr th:each="borrower : ${borrowers}">
+                  <td th:text="${borrower.borrowerId}"></td>
+                  <td th:text="${borrower.name}"></td>
+                  <td th:text="${borrower.address}"></td>
+                  <td th:text="${borrower.contactNumber}"></td>
+          		   <td><a href="#" th:href="'/transaction/borrower/'+${borrower.borrowerId}">Select</a></td>        
+                </tr>
+              </tbody>
+            </table>
+          </div>
+      
+      
+      
+     
+      
+     
+      
+
+    </div><!-- /.container -->
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>
