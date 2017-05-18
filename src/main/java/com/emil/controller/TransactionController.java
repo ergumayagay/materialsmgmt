@@ -65,14 +65,14 @@ public class TransactionController {
 	}
 	
 	@GetMapping(path="/edit/{transactionId}")
-	public String editItem(@PathVariable Long transactionId ,Model model){
+	public String editTransaction(@PathVariable Long transactionId ,Model model){
 		transaction = transactionRepository.findOne(transactionId);
 		model.addAttribute("transaction", transaction);
 		return "editTransaction";
 	}
 	
 	@PostMapping(path="/edit/{transactionId}")
-	public String saveEditItem(@ModelAttribute Transaction transaction,BindingResult bindingResult){
+	public String saveEditTransaction(@ModelAttribute Transaction transaction,BindingResult bindingResult){
 		transaction = this.transaction;
 		if(bindingResult.hasErrors()){
 			return "redirect:/transaction/edit/"+transaction.getTransactionId();

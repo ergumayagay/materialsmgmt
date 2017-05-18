@@ -33,7 +33,7 @@ public class BorrowerController {
 	}
 	
 	@PostMapping(path="/new")
-	public String saveNewItem(@ModelAttribute Borrower borrower, BindingResult bindingResult){
+	public String saveNewBorrower(@ModelAttribute Borrower borrower, BindingResult bindingResult){
 		if(bindingResult.hasErrors()){
 			return "newBorrower";
 		}
@@ -59,7 +59,7 @@ public class BorrowerController {
 	}
 	
 	@GetMapping("/select")
-	public String selectItem(Model model){
+	public String selectBorrower(Model model){
 		model.addAttribute("borrowers", borrowerRepository.findAll());
 		return "selectBorrower";
 	}
