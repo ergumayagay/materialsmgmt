@@ -20,6 +20,8 @@ public class ItemController {
 	@Autowired
 	private ItemRepository itemRepository;
 	
+
+	
 	@GetMapping
 	public String getItems(Model model){
 		model.addAttribute("items", itemRepository.findAll());
@@ -35,8 +37,7 @@ public class ItemController {
 	@GetMapping(path="/new")
 	public String addNewItem(Model model){
 		model.addAttribute("item", new Item());
-		return "newItem";
-		
+		return "newItem";	
 	}
 	
 	@PostMapping(path="/new")
@@ -53,7 +54,7 @@ public class ItemController {
 	public String editItem(@PathVariable Long stockId, Model model){
 		model.addAttribute("item", itemRepository.findOne(stockId));
 		return "editItem";	
-	}
+		}
 	
 	@PostMapping(path="/edit/{stockId}")
 	public String saveEditItem(@ModelAttribute Item item, BindingResult bindingResult){

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html  xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
 <meta charset="ISO-8859-1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -41,7 +41,7 @@
       
       </div>
       
-       <form class="form-horizontal" action="#" th:action="@{/item/new}" th:object="${item}"  method="post">
+       <form class="form-horizontal" action="#"  th:object="${item}" th:action="@{/item/new}" method="post">
             
            
             

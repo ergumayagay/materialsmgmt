@@ -36,14 +36,14 @@ public class TransactionController {
 	public String addNewTransaction(Model model){
 		transaction = new Transaction();
 		model.addAttribute("transaction",transaction);
-		return "newTransaction";
+		return "transaction";
 	}
 	
-	@PostMapping(path="/new")
+	@RequestMapping(path="/save")
 	public String saveNewTransaction(@ModelAttribute Transaction transaction,BindingResult bindingResult){
 		transaction = this.transaction;
 		if(bindingResult.hasErrors()){
-			return "newTransaction";
+			return "transaction";
 		}
 		transactionRepository.save(transaction);
 		return "redirect:/transaction";
@@ -54,50 +54,22 @@ public class TransactionController {
 	public String selectItem(@PathVariable Item item, Model model){
 		transaction.setItem(item);
 		model.addAttribute("transaction",transaction);
-		return "newTransaction";
+		return "transaction";
 	}
 	
 	@RequestMapping(value="/borrower/{borrower}")
 	public String selectBorrower(@PathVariable Borrower borrower, Model model){
 		transaction.setBorrower(borrower);
 		model.addAttribute("transaction",transaction);
-		return "newTransaction";
+		return "transaction";
 	}
 	
 	@GetMapping(path="/edit/{transactionId}")
 	public String editTransaction(@PathVariable Long transactionId ,Model model){
 		transaction = transactionRepository.findOne(transactionId);
 		model.addAttribute("transaction", transaction);
-		return "editTransaction";
+		return "transaction";
 	}
-	
-	@PostMapping(path="/edit/{transactionId}")
-	public String saveEditTransaction(@ModelAttribute Transaction transaction,BindingResult bindingResult){
-		transaction = this.transaction;
-		if(bindingResult.hasErrors()){
-			return "redirect:/transaction/edit/"+transaction.getTransactionId();
-		}
-		
-		transactionRepository.save(transaction);
-		return "redirect:/transaction";
-	}
-	
-	@RequestMapping(value="/edit/item/{item}")
-	public String selectEditItem(@PathVariable Item item, Model model){
-		transaction.setItem(item);
-		model.addAttribute("transaction",transaction);
-		return "editTransaction";
-	}
-	
-	@RequestMapping(value="/edit/borrower/{borrower}")
-	public String selectEditBorrower(@PathVariable Borrower borrower, Model model){
-		transaction.setBorrower(borrower);
-		model.addAttribute("transaction",transaction);
-		return "editTransaction";
-	}
-	
-	
-
 	
 	
 }
