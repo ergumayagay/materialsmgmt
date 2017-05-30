@@ -20,8 +20,6 @@ public class ItemController {
 	@Autowired
 	private ItemRepository itemRepository;
 	
-
-	
 	@GetMapping
 	public String getItems(Model model){
 		model.addAttribute("items", itemRepository.findAll());
