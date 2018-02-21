@@ -9,3 +9,5 @@ Spring Boot 1.5.3.RELEASE
 MySQL 5.6
 
 Bootstrap 3.3.7
+
+This is a simple materials management program.
